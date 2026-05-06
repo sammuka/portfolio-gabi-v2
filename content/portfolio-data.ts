@@ -128,7 +128,7 @@ export const portfolioData: PortfolioData = {
   bioShort:
     "UX/UI Designer com foco em produtos digitais, prototipagem, usabilidade e design systems.",
   bioLong:
-    "Gabriella Gonçalves dos Santos atua como UX/UI Designer, com mais de 2 anos de experiência na criação de produtos digitais. Seu foco profissional envolve design systems, prototipagem, usabilidade e Figma, sempre com atenção à construção de experiências intuitivas. Sua trajetória pública está associada à Sistran Informática, empresa de tecnologia voltada ao mercado segurador, um contexto em que clareza, consistência e compreensão de fluxos complexos são fundamentais.",
+    "Gabriella Gonçalves dos Santos atua como UX/UI Designer, com mais de 2 anos de experiência na criação de produtos digitais. Seu foco profissional envolve design systems, prototipagem, usabilidade e Figma, sempre com atenção à construção de experiências intuitivas. Sua trajetória pública está associada à Sistran Informática, empresa de tecnologia voltada ao mercado segurador, um contexto em que clareza, consistência e compreensão de fluxos complexos são fundamentais. Integra ferramentas como Figma Make, Bolt.new e agentes de IA ao fluxo de prototipagem e análise de jornadas, acelerando a validação de hipóteses com precisão.",
   location: "Dois Vizinhos, PR — Brasil",
   locationTimezone: "America/Sao_Paulo",
   linkedin: "https://br.linkedin.com/in/gabriella-gon%C3%A7alves-0283841b2",
@@ -137,9 +137,9 @@ export const portfolioData: PortfolioData = {
   skills: [
     "UX/UI Design",
     "Design Systems",
-    "Prototipagem",
-    "Usabilidade",
-    "Figma",
+    "Figma Make",
+    "Bolt.new",
+    "Agentes de IA",
     "Produtos Digitais",
   ],
   capabilities: [
@@ -155,7 +155,7 @@ export const portfolioData: PortfolioData = {
       token: "02 / PROCESSO",
       title: "Prototipagem",
       description:
-        "Criação de protótipos para visualizar fluxos, testar caminhos e apoiar decisões antes do desenvolvimento.",
+        "Prototipagem acelerada com suporte de ferramentas de IA para iterar fluxos, validar hipóteses e apoiar decisões de produto antes do desenvolvimento.",
     },
     {
       id: "design-systems",
@@ -172,11 +172,11 @@ export const portfolioData: PortfolioData = {
         "Análise de jornadas, fluxos e pontos de fricção para tornar a experiência mais simples e intuitiva.",
     },
     {
-      id: "figma",
-      token: "05 / FERRAMENTA",
-      title: "Figma",
+      id: "ai-prototyping",
+      token: "05 / VELOCITY",
+      title: "IA + Prototipagem",
       description:
-        "Criação de telas, componentes, protótipos e materiais de alinhamento visual em ambiente colaborativo.",
+        "Uso integrado de Figma Make, Bolt.new e agentes de IA para acelerar prototipagem, validar fluxos e iterar com precisão — sem abrir mão da qualidade do design.",
     },
     {
       id: "digital-products",
@@ -209,7 +209,7 @@ export const portfolioData: PortfolioData = {
       index: "03",
       title: "Prototipagem",
       description:
-        "Construção de wireframes e protótipos para alinhar caminhos de solução com stakeholders.",
+        "Construção de wireframes e protótipos com apoio de ferramentas de IA (Figma Make, Bolt.new) para iterar caminhos de solução com velocidade e alinhamento com stakeholders.",
     },
     {
       index: "04",

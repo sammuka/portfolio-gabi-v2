@@ -24,7 +24,7 @@ export const portfolioDataEn: PortfolioData = {
   bioShort:
     "UX/UI Designer focused on digital products, prototyping, usability and design systems.",
   bioLong:
-    "Gabriella Gonçalves dos Santos works as a UX/UI Designer, with over 2 years of experience building digital products. Her professional focus covers design systems, prototyping, usability and Figma, always with attention to building intuitive experiences. Her public track record is associated with Sistran Informática, a technology company serving the insurance market — a context where clarity, consistency and the ability to understand complex flows are essential.",
+    "Gabriella Gonçalves dos Santos works as a UX/UI Designer, with over 2 years of experience building digital products. Her professional focus covers design systems, prototyping, usability and Figma, always with attention to building intuitive experiences. Her public track record is associated with Sistran Informática, a technology company serving the insurance market — a context where clarity, consistency and the ability to understand complex flows are essential. She integrates tools like Figma Make, Bolt.new and AI agents into her prototyping and journey analysis workflow, accelerating hypothesis validation with precision.",
   location: "Dois Vizinhos, PR — Brazil",
   locationTimezone: "America/Sao_Paulo",
   linkedin: "https://br.linkedin.com/in/gabriella-gon%C3%A7alves-0283841b2",
@@ -33,9 +33,9 @@ export const portfolioDataEn: PortfolioData = {
   skills: [
     "UX/UI Design",
     "Design Systems",
-    "Prototyping",
-    "Usability",
-    "Figma",
+    "Figma Make",
+    "Bolt.new",
+    "AI Agents",
     "Digital Products",
   ],
   capabilities: [
@@ -51,7 +51,7 @@ export const portfolioDataEn: PortfolioData = {
       token: "02 / PROCESS",
       title: "Prototyping",
       description:
-        "Building prototypes to visualize flows, test paths and support decisions before development.",
+        "Accelerated prototyping with AI tool support to iterate flows, validate hypotheses and support product decisions before development.",
     },
     {
       id: "design-systems",
@@ -68,11 +68,11 @@ export const portfolioDataEn: PortfolioData = {
         "Analysis of journeys, flows and friction points to make the experience simpler and more intuitive.",
     },
     {
-      id: "figma",
-      token: "05 / TOOL",
-      title: "Figma",
+      id: "ai-prototyping",
+      token: "05 / VELOCITY",
+      title: "AI + Prototyping",
       description:
-        "Creating screens, components, prototypes and visual alignment materials in a collaborative environment.",
+        "Integrated use of Figma Make, Bolt.new and AI agents to accelerate prototyping, validate flows and iterate with precision — without compromising design quality.",
     },
     {
       id: "digital-products",
@@ -105,7 +105,7 @@ export const portfolioDataEn: PortfolioData = {
       index: "03",
       title: "Prototyping",
       description:
-        "Building wireframes and prototypes to align solution paths with stakeholders.",
+        "Building wireframes and prototypes with AI tool support (Figma Make, Bolt.new) to iterate solution paths with speed and stakeholder alignment.",
     },
     {
       index: "04",

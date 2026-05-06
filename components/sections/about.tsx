@@ -32,6 +32,7 @@ const COPY = {
       'Gabriella Gonçalves dos Santos atua como UX/UI Designer, com mais de 2 anos de experiência na criação de produtos digitais.',
       'Seu foco profissional envolve design systems, prototipagem, usabilidade e Figma, sempre com atenção à construção de experiências intuitivas.',
       'Sua trajetória pública está associada à Sistran Informática, empresa de tecnologia voltada ao mercado segurador, um contexto em que clareza, consistência e compreensão de fluxos complexos são fundamentais.',
+      'Integra ferramentas como Figma Make, Bolt.new e agentes de IA ao fluxo de prototipagem e análise de jornadas, acelerando a validação de hipóteses com precisão.',
     ],
     stats: [
       { label: 'TÍTULO', value: 'UX/UI Designer' },
@@ -52,6 +53,7 @@ const COPY = {
       'Gabriella Gonçalves dos Santos works as a UX/UI Designer, with over 2 years of experience building digital products.',
       'Her professional focus covers design systems, prototyping, usability and Figma, always with attention to building intuitive experiences.',
       'Her public track record is associated with Sistran Informática, a technology company serving the insurance market — a context where clarity, consistency and the ability to understand complex flows are essential.',
+      'She integrates tools like Figma Make, Bolt.new and AI agents into her prototyping and journey analysis workflow, accelerating hypothesis validation with precision.',
     ],
     stats: [
       { label: 'TITLE', value: 'UX/UI Designer' },
