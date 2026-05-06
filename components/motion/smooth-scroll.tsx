@@ -21,10 +21,11 @@ function LenisScrollTriggerBridge() {
  * SmoothScroll — wrapper Lenis.
  *
  * ReactLenis sempre monta (estrutura DOM estável entre SSR e client),
- * evitando o removeChild de reconciliação.
- * Quando prefers-reduced-motion está ativo, o Lenis é desabilitado via
- * `options.autoRaf = false` e não emite nenhum tick — scroll volta ao
- * comportamento nativo do browser.
+ * evitando removeChild na reconciliação.
+ *
+ * Com prefers-reduced-motion: usa lerp=1 / duration=0 (scroll instantâneo,
+ * sem suavização) — Lenis ainda processa eventos de wheel normalmente.
+ * Desativar Lenis completamente (autoRaf:false) bloqueia o scroll na tela.
  */
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const reduced = useReducedMotion();
@@ -39,7 +40,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
       root
       options={
         reduced
-          ? { autoRaf: false }
+          ? { lerp: 1, duration: 0 }
           : {
               duration: 1.1,
               easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

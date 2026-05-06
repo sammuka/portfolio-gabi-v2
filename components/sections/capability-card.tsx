@@ -29,9 +29,9 @@ export function CapabilityCard({
   const reduced = useReducedMotion();
   const [hovered, setHovered] = useState(false);
 
-  // Descrição visível apenas no hover (desktop) ou sempre quando reduced-motion.
-  const alwaysOpen = reduced;
-  const open = reduced || hovered;
+  // Descrição visível apenas no hover. Animação de expand é instantânea com reduced-motion.
+  const alwaysOpen = false;
+  const open = hovered;
 
   return (
     <motion.article

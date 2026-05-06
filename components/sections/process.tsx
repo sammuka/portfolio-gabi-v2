@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { MonoTag } from '@/components/primitives/mono-tag';
-import { useReducedMotion } from '@/lib/use-reduced-motion';
 import { getPortfolioData } from '@/content/get-portfolio-data';
 
 /**
@@ -156,8 +155,6 @@ export function Process({ locale }: ProcessProps) {
   const total = steps.length;
   const totalLabel = String(total).padStart(2, '0');
 
-  const reduced = useReducedMotion();
-
   return (
     <section id="process" aria-labelledby="process-title" className="relative">
       {/* ── Mobile: vertical timeline (always) ── */}
@@ -212,35 +209,11 @@ export function Process({ locale }: ProcessProps) {
         </ol>
       </div>
 
-      {/* ── Desktop: reduced-motion → overflow-x scroll ── */}
-      {reduced && (
-        <div className="hidden md:block">
-          <div className="mx-auto w-full max-w-[1440px] px-6 pt-24 pb-10 md:pt-32 lg:px-10">
-            <MonoTag index="005" label={copy.eyebrow} tone="accent" />
-            <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-              <h2
-                id="process-title"
-                className="display-lg max-w-[28ch] text-[var(--fg)]"
-              >
-                {copy.title}
-              </h2>
-              <p className="body-base max-w-sm text-[var(--fg-soft)]">{copy.subtitle}</p>
-            </div>
-          </div>
-          <div className="overflow-x-auto pb-16">
-            <div className="flex gap-8 px-[8vw]">
-              <StepCards steps={steps} copy={copy} totalLabel={totalLabel} />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Desktop: motion → sticky horizontal scrub ── */}
-      {!reduced && (
-        <div className="hidden md:block">
-          <ProcessStickyDesktop steps={steps} copy={copy} totalLabel={totalLabel} />
-        </div>
-      )}
+      {/* ── Desktop: sticky horizontal scrub (sempre, inclusive com reduced-motion) ── */}
+      {/* useScroll/useTransform é scroll-driven (posição), não animação — não viola reduced-motion */}
+      <div className="hidden md:block">
+        <ProcessStickyDesktop steps={steps} copy={copy} totalLabel={totalLabel} />
+      </div>
     </section>
   );
 }
