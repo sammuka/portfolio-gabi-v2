@@ -18,35 +18,37 @@ function LenisScrollTriggerBridge() {
 }
 
 /**
- * SmoothScroll — wrapper Lenis (duration 1.1, lerp 0.085).
- * LenisScrollTriggerBridge sincroniza cada tick do Lenis com o GSAP ScrollTrigger,
- * permitindo que o pin horizontal do Process funcione com smooth scroll ativo.
+ * SmoothScroll — wrapper Lenis.
+ *
+ * ReactLenis sempre monta (estrutura DOM estável entre SSR e client),
+ * evitando o removeChild de reconciliação.
+ * Quando prefers-reduced-motion está ativo, o Lenis é desabilitado via
+ * `options.autoRaf = false` e não emite nenhum tick — scroll volta ao
+ * comportamento nativo do browser.
  */
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const reduced = useReducedMotion();
 
   useEffect(() => {
     if (reduced) return;
-    // Desabilita o tick automático do GSAP para o ScrollTrigger não duplicar eventos.
-    // O Lenis vai chamar ScrollTrigger.update() a cada frame via useLenis.
     ScrollTrigger.normalizeScroll(false);
   }, [reduced]);
-
-  if (reduced) {
-    return <>{children}</>;
-  }
 
   return (
     <ReactLenis
       root
-      options={{
-        duration: 1.1,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        lerp: 0.085,
-      }}
+      options={
+        reduced
+          ? { autoRaf: false }
+          : {
+              duration: 1.1,
+              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smoothWheel: true,
+              lerp: 0.085,
+            }
+      }
     >
-      <LenisScrollTriggerBridge />
+      {!reduced && <LenisScrollTriggerBridge />}
       {children}
     </ReactLenis>
   );
