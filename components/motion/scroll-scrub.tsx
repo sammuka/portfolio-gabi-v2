@@ -6,38 +6,17 @@ import { useReducedMotion } from '@/lib/use-reduced-motion';
 
 export interface ScrollScrubProps {
   children: ReactNode;
-  /**
-   * ScrollTrigger `start` value (e.g. `"top bottom"`, `"top top"`).
-   * Defaults to `"top bottom"`.
-   */
   start?: string;
-  /**
-   * ScrollTrigger `end` value (e.g. `"bottom top"`, `"+=100%"`).
-   * Defaults to `"bottom top"`.
-   */
   end?: string;
-  /**
-   * Scrub behavior. `true` ties progress 1:1 to scroll; a number smooths
-   * the scrub over that many seconds. Defaults to `true`.
-   */
   scrub?: boolean | number;
-  /**
-   * Pin the wrapper element while the trigger is active.
-   * Defaults to `false`.
-   */
   pin?: boolean;
-  /**
-   * Callback invoked on every scrub tick with the current progress `[0, 1]`.
-   */
   onUpdate?: (progress: number) => void;
   className?: string;
 }
 
 /**
- * Generic GSAP ScrollTrigger wrapper with scrub support. Registers plugins
- * lazily on the client via `registerGsap()`. Honors `prefers-reduced-motion`:
- * when reduced motion is requested, `pin` is still applied but scrub is
- * disabled and the final state is delivered immediately via `onUpdate(1)`.
+ * Generic GSAP ScrollTrigger wrapper with scrub support.
+ * Lenis–ScrollTrigger sync is handled globally in SmoothScroll via useLenis.
  */
 export function ScrollScrub({
   children,
@@ -58,7 +37,6 @@ export function ScrollScrub({
     registerGsap();
 
     if (reduced) {
-      // Emit the final state once so consumers can settle their UI.
       onUpdate?.(1);
 
       if (!pin) return;

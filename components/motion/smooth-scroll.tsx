@@ -1,20 +1,36 @@
 'use client';
 
-import { ReactLenis } from 'lenis/react';
+import { ReactLenis, useLenis } from 'lenis/react';
 import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 import { useReducedMotion } from '@/lib/use-reduced-motion';
+import { ScrollTrigger } from '@/lib/gsap';
 
 interface SmoothScrollProps {
   children: ReactNode;
 }
 
+function LenisScrollTriggerBridge() {
+  useLenis(() => {
+    ScrollTrigger.update();
+  });
+  return null;
+}
+
 /**
  * SmoothScroll — wrapper Lenis (duration 1.1, lerp 0.085).
- * Kill-switch: quando `prefers-reduced-motion: reduce`, desliga o Lenis
- * e devolve o scroll nativo do browser.
+ * LenisScrollTriggerBridge sincroniza cada tick do Lenis com o GSAP ScrollTrigger,
+ * permitindo que o pin horizontal do Process funcione com smooth scroll ativo.
  */
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    // Desabilita o tick automático do GSAP para o ScrollTrigger não duplicar eventos.
+    // O Lenis vai chamar ScrollTrigger.update() a cada frame via useLenis.
+    ScrollTrigger.normalizeScroll(false);
+  }, [reduced]);
 
   if (reduced) {
     return <>{children}</>;
@@ -30,6 +46,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
         lerp: 0.085,
       }}
     >
+      <LenisScrollTriggerBridge />
       {children}
     </ReactLenis>
   );
