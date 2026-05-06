@@ -150,9 +150,8 @@ body {
 .display-xxl {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   font-size: var(--fs-display-xxl);
-  line-height: 1;
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  padding-bottom: 0.12em;
 }
 
 .display-xl {

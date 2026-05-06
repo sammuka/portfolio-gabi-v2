@@ -49,10 +49,8 @@ export function Hero({ locale }: HeroProps) {
   const t = i18n[locale];
 
   const outlinedStyle: CSSProperties = {
-    WebkitTextStroke: '1.5px var(--fg-soft)',
-    WebkitTextFillColor: 'transparent',
-    color: 'transparent',
-    paintOrder: 'stroke fill',
+    color: 'var(--accent-mute)',
+    opacity: 0.4,
   };
 
   const radialStyle: CSSProperties = {
@@ -143,7 +141,8 @@ export function Hero({ locale }: HeroProps) {
               <Magnetic>
                 <a
                   href="#capabilities"
-                  className="mono-meta inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 text-white transition-transform hover:scale-[1.02]"
+                  className="mono-meta inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-semibold transition-transform hover:scale-[1.02]"
+                  style={{ color: '#FFFFFF' }}
                 >
                   {t.ctaPrimary}
                   <span

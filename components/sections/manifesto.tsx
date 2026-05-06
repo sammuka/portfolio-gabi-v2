@@ -211,13 +211,14 @@ function ManifestoLine({
       // overflow-hidden garante que o translateY(110%) inicial fique escondido
     >
       {tokens.map((tok, i) => (
-        <span
-          key={i}
-          data-token
-          className={tok.accent ? 'text-accent' : undefined}
-          style={{ display: 'inline-block' }}
-        >
-          {tok.text}
+        <span key={i}>
+          <span
+            data-token
+            className={tok.accent ? 'text-accent' : undefined}
+            style={{ display: 'inline-block' }}
+          >
+            {tok.text}
+          </span>
           {i < tokens.length - 1 ? ' ' : ''}
         </span>
       ))}

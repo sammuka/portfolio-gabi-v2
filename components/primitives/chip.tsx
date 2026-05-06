@@ -21,7 +21,7 @@ export interface ChipProps {
    * - `mute` (default) → transparente com texto em `--fg-mute`.
    * - `warning` → transparente com border dashed em `--fg-mute` (uso: "EM CURADORIA").
    */
-  tone?: 'accent' | 'mute' | 'warning';
+  tone?: 'accent' | 'mute' | 'warning' | 'inverted';
   className?: string;
 }
 
@@ -29,6 +29,8 @@ const toneClasses: Record<NonNullable<ChipProps['tone']>, string> = {
   accent: 'bg-accent-soft text-accent border-hairline-strong',
   mute: 'bg-transparent text-fg-mute border-hairline-strong',
   warning: 'bg-transparent text-fg-mute border-fg-mute border-dashed',
+  // Para uso sobre bg accent (ex.: seção Contact)
+  inverted: 'bg-bg text-accent border-bg',
 };
 
 export function Chip({ children, tone = 'mute', className }: ChipProps) {

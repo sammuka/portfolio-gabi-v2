@@ -29,8 +29,10 @@ export function CapabilityCard({
   const reduced = useReducedMotion();
   const [hovered, setHovered] = useState(false);
 
-  const alwaysOpen = reduced;
-  const open = alwaysOpen || hovered;
+  // Descrição sempre visível (acessibilidade + clareza); hover apenas
+  // intensifica o visual do card (fundo + borda accent).
+  const alwaysOpen = true;
+  const open = reduced || hovered;
 
   return (
     <motion.article

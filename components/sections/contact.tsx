@@ -151,28 +151,21 @@ export function Contact({ locale }: ContactProps) {
           <div className="col-span-12 md:col-span-9">
             <h2
               id="contact-title"
-              className="font-display leading-[0.92] tracking-tight"
-              style={{ fontSize: 'var(--fs-display-xxl)' }}
+              className="font-display display-xl tracking-tight"
+              style={{ color: 'var(--bg)' }}
             >
               <Magnetic strength={0.12}>
                 <span className="block">{t.headlineLine1}</span>
               </Magnetic>
               <span className="block">
                 {t.headlineLine2Prefix}
-                <span style={{ color: 'var(--bg)' }}>
-                  <span
-                    className="inline-block"
-                    style={{
-                      color: 'var(--bg)',
-                      WebkitTextStroke: '1px var(--bg)',
-                    }}
-                  >
-                    <span style={{ color: 'var(--accent)', background: 'var(--bg)', padding: '0 0.12em' }}>
-                      {t.headlineAccent}
-                    </span>
-                  </span>
+                <span
+                  className="whitespace-nowrap"
+                  style={{ color: 'var(--fg)' }}
+                >
+                  {t.headlineAccent}
+                  {t.headlineSuffix}
                 </span>
-                {t.headlineSuffix}
               </span>
             </h2>
           </div>
@@ -189,7 +182,7 @@ export function Contact({ locale }: ContactProps) {
             }}
           >
             <header className="flex items-center justify-between gap-3">
-              <Chip tone="accent">{t.linkedinChip}</Chip>
+              <Chip tone="inverted">{t.linkedinChip}</Chip>
             </header>
             <div>
               <p className="font-display display-sm" style={{ color: 'var(--bg)' }}>
@@ -228,7 +221,7 @@ export function Contact({ locale }: ContactProps) {
             }}
           >
             <header className="flex items-center justify-between gap-3">
-              <Chip tone="accent">{t.emailChip}</Chip>
+              <Chip tone="inverted">{t.emailChip}</Chip>
             </header>
             <div>
               <code
@@ -255,7 +248,7 @@ export function Contact({ locale }: ContactProps) {
             }}
           >
             <header className="flex items-center justify-between gap-3">
-              <Chip tone="accent">{t.whatsappChip}</Chip>
+              <Chip tone="inverted">{t.whatsappChip}</Chip>
               {whatsappDisabled ? <Chip tone="warning">{t.whatsappPending}</Chip> : null}
             </header>
             <div>

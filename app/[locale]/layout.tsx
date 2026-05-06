@@ -106,10 +106,8 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${display.variable} ${body.variable} ${mono.variable} ${script.variable}`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: NO_FLASH_THEME }} />
-      </head>
       <body className="bg-bg text-fg">
+        <script dangerouslySetInnerHTML={{ __html: NO_FLASH_THEME }} />
         <NextIntlClientProvider messages={messages}>
           <Header />
           {children}
