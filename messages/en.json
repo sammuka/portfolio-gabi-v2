@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "manifesto": "Manifesto",
+    "capabilities": "Capabilities",
+    "about": "About",
+    "process": "Process",
+    "domain": "Domain",
+    "work": "Work",
+    "testimonials": "Testimonials",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "cta": {
+    "copy_email": "Copy email",
+    "open_linkedin": "Open LinkedIn",
+    "open_whatsapp": "Open WhatsApp"
+  },
+  "labels": {
+    "coming_soon": "Coming soon",
+    "in_curation": "In curation",
+    "available": "Available",
+    "brt": "BRT"
+  },
+  "testimonials": {
+    "title": "Testimonials.",
+    "editorial_note": "Testimonials from clients and collaborators are being collected with authorization. Coming soon.",
+    "coming_soon": "COMING SOON"
+  }
+}

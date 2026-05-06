@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "manifesto": "Manifesto",
+    "capabilities": "Capacidades",
+    "about": "Sobre",
+    "process": "Processo",
+    "domain": "Domínio",
+    "work": "Trabalhos",
+    "testimonials": "Depoimentos",
+    "education": "Formação",
+    "contact": "Contato"
+  },
+  "cta": {
+    "copy_email": "Copiar e-mail",
+    "open_linkedin": "Abrir LinkedIn",
+    "open_whatsapp": "Abrir WhatsApp"
+  },
+  "labels": {
+    "coming_soon": "Em breve",
+    "in_curation": "Em curadoria",
+    "available": "Disponível",
+    "brt": "BRT"
+  },
+  "testimonials": {
+    "title": "Depoimentos.",
+    "editorial_note": "Depoimentos de clientes e colaboradoras estão sendo coletados com autorização. Em breve.",
+    "coming_soon": "EM BREVE"
+  }
+}

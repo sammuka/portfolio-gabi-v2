@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Cold Archive — Design System (V2)
+   Paleta: carbono (bg) + azul royal (accent)
+   Dark-first. Escala tipográfica canônica herdada da V1.
+   ========================================================= */
+
+:root {
+  /* ---- Paleta Cold Archive (dark default) ---- */
+  --bg: #0A0A0C;
+  --surface-2: #111114;
+  --surface-3: #16161B;
+
+  --fg: #EDEDED;
+  --fg-soft: #B3B3B3;
+  --fg-mute: #808080;
+
+  --accent: #3B7CDE;
+  --accent-soft: rgba(59, 124, 222, 0.15);
+  --accent-mute: rgba(59, 124, 222, 0.7);
+
+  --hairline: rgba(237, 237, 237, 0.08);
+  --hairline-strong: rgba(237, 237, 237, 0.2);
+
+  /* ---- Escala tipográfica canônica (clamp fluido) ---- */
+  --fs-display-xxl: clamp(3.5rem, 11vw, 11rem);
+  --fs-display-xl:  clamp(2.5rem, 7vw, 6rem);
+  --fs-display-lg:  clamp(1.75rem, 4.5vw, 3.5rem);
+  --fs-display-md:  clamp(1.5rem, 3vw, 2.5rem);
+  --fs-display-sm:  clamp(1.125rem, 2vw, 1.5rem);
+
+  --fs-body-lg:   1.0625rem;
+  --fs-body-base: 0.9375rem;
+  --fs-body-sm:   0.8125rem;
+
+  --fs-eyebrow:   0.75rem;
+  --fs-mono-meta: 0.625rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ---- Easing ---- */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Light-mode — Cold Archive variant
+   Mantém hierarquia cromática: carbono → paper, azul accent preservado. */
+[data-theme="light"] {
+  --bg: #F5F4F0;
+  --surface-2: #EAE8E0;
+  --surface-3: #DDDAD0;
+
+  --fg: #0F0F10;
+  --fg-soft: #3A3A3D;
+  --fg-mute: #6A6A6E;
+
+  --accent: #2C5FB8;
+  --accent-soft: rgba(44, 95, 184, 0.12);
+  --accent-mute: rgba(44, 95, 184, 0.7);
+
+  --hairline: rgba(15, 15, 16, 0.1);
+  --hairline-strong: rgba(15, 15, 16, 0.22);
+
+  color-scheme: light;
+}
+
+[data-theme="light"] html,
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* =========================================================
+   @theme — expõe tokens como utilitários Tailwind 4
+   ========================================================= */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-fg: var(--fg);
+  --color-fg-soft: var(--fg-soft);
+  --color-fg-mute: var(--fg-mute);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-mute: var(--accent-mute);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-script: var(--font-script);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  /* Lenis assume o controle do scroll — suprimimos smooth nativo */
+  scroll-behavior: auto;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* =========================================================
+   Kill-switch universal prefers-reduced-motion
+   Exceção: .marquee-track é ornamental e mantém seu loop
+   (mesmo argumento aplicado por Apple/Material para marquees decorativos).
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *:not(.marquee-track):not(.marquee-track *),
+  *:not(.marquee-track):not(.marquee-track *)::before,
+  *:not(.marquee-track):not(.marquee-track *)::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   Seleção + focus ring (accent)
+   ========================================================= */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* =========================================================
+   Escala tipográfica canônica
+   ========================================================= */
+.display-xxl {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-display-xxl);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.12em;
+}
+
+.display-xl {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-display-xl);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.1em;
+}
+
+.display-lg {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-display-lg);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.display-md {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-display-md);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.display-sm {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-display-sm);
+  line-height: 1.2;
+}
+
+.body-lg {
+  font-size: var(--fs-body-lg);
+  line-height: 1.6;
+}
+
+.body-base {
+  font-size: var(--fs-body-base);
+  line-height: 1.65;
+}
+
+.body-sm {
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+}
+
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+  font-weight: 500;
+}
+
+.mono-meta {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--fs-mono-meta);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+
+/* Script — Dancing Script: uso EXCLUSIVO na assinatura "Gabi" no colophon.
+   Nenhuma outra seção deve aplicar esta classe. */
+.font-script {
+  font-family: var(--font-script), "Dancing Script", cursive;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* =========================================================
+   Utilitários de composição
+   ========================================================= */
+
+/* Hairline — divisor vertical/horizontal com gradiente */
+.hairline {
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent);
+  height: 1px;
+}
+
+/* Dot grid — fundo pontilhado sutil para seções arquivísticas */
+.dot-grid-bg {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(237, 237, 237, 0.04) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+}
+
+/* content-visibility helper para perf em seções fora da viewport */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+/* =========================================================
+   Animações reutilizáveis
+   ========================================================= */
+
+/* Marquee — usado por components/motion/marquee.tsx */
+@keyframes marquee-track {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  animation-name: marquee-track;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+/* Pulse azul — dot de status disponível */
+@keyframes pulse-accent {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.15); }
+}
+
+.pulse-accent {
+  animation: pulse-accent 2.4s var(--ease-soft) infinite;
+}
