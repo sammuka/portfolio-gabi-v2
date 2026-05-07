@@ -53,30 +53,28 @@ function StepCards({
         return (
           <article
             key={step.index}
-            className="flex min-w-[80vw] shrink-0 flex-col justify-between gap-10 rounded-[var(--radius-lg)] border border-[var(--hairline-strong)] bg-[var(--surface-2)] p-10 md:min-w-[50vw] md:p-14"
+            className="flex w-[320px] shrink-0 flex-col justify-between gap-6 rounded-[var(--radius-lg)] border border-[var(--hairline-strong)] bg-[var(--surface-2)] p-6 lg:w-[360px]"
           >
-            <div className="flex items-start justify-between gap-6">
+            <div className="flex items-start justify-between gap-4">
               <MonoTag
                 index={chipIndex}
                 label={`${copy.chip} · ${chipIndex}/${totalLabel}`}
                 tone="accent"
               />
-              <span className="mono-meta">
+              <span className="mono-meta shrink-0">
                 {copy.stepLabel} {chipIndex}
               </span>
             </div>
-            <div className="grid grid-cols-[auto_1fr] items-end gap-8">
+            <div className="flex flex-col gap-3">
               <span
                 aria-hidden="true"
-                className="display-xxl font-[family-name:var(--font-display)] text-[var(--accent)]"
+                className="display-xl font-[family-name:var(--font-display)] text-[var(--accent)]"
                 style={{ lineHeight: 0.85 }}
               >
                 {step.index}
               </span>
-              <div className="flex flex-col gap-4 pb-2">
-                <h3 className="display-md text-[var(--fg)]">{step.title}</h3>
-                <p className="body-base text-[var(--fg-soft)]">{step.description}</p>
-              </div>
+              <h3 className="display-sm text-[var(--fg)]">{step.title}</h3>
+              <p className="body-sm text-[var(--fg-soft)]">{step.description}</p>
             </div>
           </article>
         );
@@ -101,7 +99,9 @@ function ProcessStickyDesktop({
     offset: ['start start', 'end end'],
   });
 
-  const translateX = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']);
+  // 5 cards × 360px + 4 gaps × 24px = 1896px total; container ~1380px visível
+  // → precisa mover ~520px para revelar o último card
+  const translateX = useTransform(scrollYProgress, [0, 1], ['0px', '-520px']);
   const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
@@ -134,14 +134,16 @@ function ProcessStickyDesktop({
           </div>
         </div>
 
-        {/* horizontal scrolling track */}
-        <div className="relative h-[calc(100vh-280px)] w-full overflow-hidden">
-          <motion.div
-            className="flex h-full items-center gap-8 pl-[8vw] pr-[8vw] will-change-transform"
-            style={{ translateX }}
-          >
-            <StepCards steps={steps} copy={copy} totalLabel={totalLabel} />
-          </motion.div>
+        {/* horizontal scrolling track — alinhado ao container padrão max-w-[1440px] */}
+        <div className="relative overflow-hidden">
+          <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-10">
+            <motion.div
+              className="flex items-stretch gap-6 will-change-transform pb-16"
+              style={{ translateX }}
+            >
+              <StepCards steps={steps} copy={copy} totalLabel={totalLabel} />
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
