@@ -115,8 +115,8 @@ export function Hero({ locale }: HeroProps) {
               DESIGNER.
             </Reveal>
             <Reveal as="span" delay={0.85} y={48} className="block">
-              <span className="inline-block" style={outlinedStyle}>
-                GONÇALVES.
+              <span className="inline-block whitespace-nowrap" style={outlinedStyle}>
+                GABI GONÇALVES.
               </span>
             </Reveal>
           </h1>

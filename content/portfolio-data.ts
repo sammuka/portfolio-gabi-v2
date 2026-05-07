@@ -273,7 +273,7 @@ export const portfolioData: PortfolioData = {
       id: "samuel-alves-tech-lead",
       author: "Samuel Alves",
       role: "Líder Técnico · Arquiteto de Soluções",
-      relation: "Líder técnico direto por dois anos",
+      relation: "",
       quote: [
         "Tive a oportunidade de atuar como líder técnico da Gabriella nos últimos dois anos e acompanhar de perto sua evolução como UX/UI Designer. Nesse período, ela demonstrou uma combinação muito valiosa de sensibilidade visual, pensamento estruturado e atenção à experiência real do usuário.",
         "A Gabriella tem uma capacidade acima da média de transformar problemas complexos em interfaces claras, organizadas e agradáveis de usar. Além do domínio em prototipação e design de interfaces, sempre se destacou pela colaboração com o time técnico, pela abertura ao diálogo e pela preocupação em construir soluções viáveis, consistentes e bem alinhadas ao produto.",

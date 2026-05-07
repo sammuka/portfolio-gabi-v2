@@ -169,7 +169,7 @@ export const portfolioDataEn: PortfolioData = {
       id: "samuel-alves-tech-lead",
       author: "Samuel Alves",
       role: "Tech Lead · Solutions Architect",
-      relation: "Direct tech lead for two years",
+      relation: "",
       // PENDING_REVIEW — translation of Samuel's Portuguese testimonial
       quote: [
         "I had the opportunity to act as Gabriella's tech lead over the last two years and follow her evolution as a UX/UI Designer closely. In that period, she demonstrated a very valuable combination of visual sensitivity, structured thinking, and attention to real user experience.",
