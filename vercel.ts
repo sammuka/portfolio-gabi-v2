@@ -5,12 +5,6 @@ export const config: VercelConfig = {
   buildCommand: "next build",
   devCommand: "next dev",
   regions: ["gru1"],
-  functions: {
-    "app/**": {
-      runtime: "nodejs24.x",
-      memory: 1024,
-    },
-  },
   headers: [
     routes.cacheControl("/images/(.*)", {
       public: true,
