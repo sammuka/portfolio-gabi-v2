@@ -41,7 +41,7 @@ const COPY = {
       { index: "06", label: "Interface" },
     ],
     publishedChip: "DESIGN SYSTEM",
-    collabChip: "COLLAB WITH ISADORA",
+    collabChip: "COLLAB WITH ISABELA",
     noticeEyebrow: "Estado editorial",
     noticeLead: [
       "A seleção de cases está sendo organizada com ",
@@ -113,6 +113,7 @@ export function SelectedWork({ locale }: SelectedWorkProps) {
 
         {/* Grid 3x2 */}
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <h1>teste</h1>
           {featured && (
             <FeaturedWorkCard
               title={featured.title}
@@ -125,6 +126,7 @@ export function SelectedWork({ locale }: SelectedWorkProps) {
               publishedChip={copy.publishedChip}
               collabChip={copy.collabChip}
             />
+            
           )}
 
           {copy.slots.map((slot, i) => (
